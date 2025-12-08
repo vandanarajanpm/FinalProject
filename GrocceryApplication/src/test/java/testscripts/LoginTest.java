@@ -20,8 +20,8 @@ public class LoginTest extends Base {
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.signinButtonClick();
-		boolean dashboardDislayed=loginpage.isDashboardDisplayed();
-		Assert.assertTrue(dashboardDislayed,"user was unable to login with valid credentials");
+		boolean dashboardDisplayed=loginpage.isDashboardDisplayed();
+		Assert.assertTrue(dashboardDisplayed,"user was unable to login with valid credentials");
 	}
 	@Test
 	public void verifyWhetherUserIsAbleToLoginWithValidUsernameAndInvalidPassword() throws IOException {
@@ -44,6 +44,8 @@ public class LoginTest extends Base {
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.signinButtonClick();
+		boolean adminusersDisplayed=loginpage.isadminusersDisplayed();
+		Assert.assertTrue(adminusersDisplayed,"user was unable to login with valid credentials");
 		}
 	@Test
 	public void verifyWhetherUserIsAbleToLoginWithInValidUsernameAndInValidPassword() throws IOException {
@@ -53,6 +55,8 @@ public class LoginTest extends Base {
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.signinButtonClick();
+		boolean alertmessageDisplayed = loginpage.isalertmessageDisplayed();
+		Assert.assertTrue(alertmessageDisplayed, "Error message should be displayed");
 		}
 	}
 	

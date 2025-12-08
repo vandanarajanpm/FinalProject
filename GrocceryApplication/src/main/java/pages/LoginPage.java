@@ -17,6 +17,8 @@ public class LoginPage {
 	@FindBy(xpath="//button[text()='Sign In']")WebElement signinButton;
 	@FindBy(xpath="//p[text()='Dashboard']") WebElement dashboard;
 	@FindBy(xpath="//b[text()='7rmart supermarket']") WebElement title;
+	@FindBy(xpath="//p[text()='Admin Users']") WebElement adminusers;
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement alertmessage;
 	
 	
 	
@@ -36,6 +38,13 @@ public class LoginPage {
 	}
 	public String getTheTitle() {
 		return title.getText();
+	}
+	public boolean isadminusersDisplayed() {
+		return adminusers.isDisplayed();
+	}
+	public boolean isalertmessageDisplayed() {
+		return alertmessage.isDisplayed();
+		
 	}
 
 }
