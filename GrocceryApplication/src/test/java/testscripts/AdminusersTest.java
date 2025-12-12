@@ -14,7 +14,7 @@ import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminusersTest extends Base{
-	@Test
+	@Test(priority=6,description="verify Add NewUser")
 	
 	public void verifyWhetherUserIsAbleToAddANewUser() throws IOException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
@@ -26,6 +26,7 @@ public class AdminusersTest extends Base{
 		
 		HomePage homepage=new HomePage(driver);
 		homepage.clickOnMoreinfoButton();
+		
 		AdminusersPage adminuserpage = new AdminusersPage(driver);
 		adminuserpage.clickOnNewButton();
 		FakerUtility fakerutility =new FakerUtility();
@@ -42,7 +43,7 @@ public class AdminusersTest extends Base{
 	    Assert.assertTrue(userAddedAlertDisplayed,"user not able to add new user");
 		
 	}
-	@Test
+	@Test(priority=7,description="verify Search For NewlyAddedUser")
 	public void verifyWhetherUserIsAbleToSearchTheNewlyAddedUser() throws IOException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
@@ -60,10 +61,11 @@ public class AdminusersTest extends Base{
 		String usernames=ExcelUtility.getStringData(0, 0,"AdminuserPage");
 		adminuserpage.enterTheUserNameToSearch(usernamevalue);
 		adminuserpage.clickOnSearchButton2();
-		boolean adminUserInformationTabDisplayed=adminuserpage.isAdminUsersIformationTabDisplayed();
-		Assert.assertTrue(adminUserInformationTabDisplayed,"user not able to see the information tab");
+		boolean userNameDisplayed=adminuserpage.isuserNameTitileDisplayed();
+		Assert.assertTrue(userNameDisplayed," user is able to see username titile");
+		
 	}
-	@Test
+	@Test(priority=8,description="verify Reset UserList")
 	public void verifyWhetherUserIsAbleToResetTheUserList() throws IOException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
@@ -71,12 +73,15 @@ public class AdminusersTest extends Base{
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.signinButtonClick();
+		
 		HomePage homepage=new HomePage(driver);
 		homepage.clickOnMoreinfoButton();
+		
 		AdminusersPage adminuserpage = new AdminusersPage(driver);
 		adminuserpage.clickOnResetButton();
-		boolean adminUserInformationlistDisplayed=adminuserpage.isAdminUsersIformationTabDisplayed();
-		Assert.assertTrue(adminUserInformationlistDisplayed,"user not able to see the information list");
+		
+		boolean adminUserListDisplayed=adminuserpage.isAdminUserListDisplayed();
+		Assert.assertTrue(adminUserListDisplayed,"user list not reset");
 		
 	}
 	

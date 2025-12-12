@@ -19,7 +19,7 @@ public WebDriver driver;
 	@FindBy(linkText="Admin")WebElement adminIcon;
 	@FindBy(linkText="Logout")WebElement logoutButton;
 	@FindBy(xpath="//a[normalize-space()='More info']") WebElement moreinfoButton;
-	
+	@FindBy(xpath="//p[text()='Manage News']/ancestor::div[@class='small-box bg-info']//a")WebElement managenews;
 	
 	public void clickOnAdminIcon() {
 		adminIcon.click();
@@ -30,6 +30,9 @@ public WebDriver driver;
 	}
 	public void clickOnMoreinfoButton() {
 		moreinfoButton.click();
+	}
+	public void clickOnManageNewsButton() {
+		managenews.click();
 	}
 	
     

@@ -1,32 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-05T18:43:09 GST" name="Default suite" finished-at="2025-12-05T18:43:26 GST" duration-ms="16442">
+  <suite started-at="2025-12-12T14:59:05 GST" name="CrossBrowserTesting" finished-at="2025-12-12T14:59:43 GST" duration-ms="38038">
     <groups>
     </groups>
-    <test started-at="2025-12-05T18:43:09 GST" name="Default test" finished-at="2025-12-05T18:43:26 GST" duration-ms="16442">
-      <class name="testscripts.AdminusersTest">
-        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testscripts.AdminusersTest@128d2484]" started-at="2025-12-05T18:43:10 GST" name="initializeBrowser" finished-at="2025-12-05T18:43:14 GST" duration-ms="4235" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyWhetherUserIsAbleToAddANewUser()[pri:0, instance:testscripts.AdminusersTest@128d2484]" started-at="2025-12-05T18:43:14 GST" name="verifyWhetherUserIsAbleToAddANewUser" finished-at="2025-12-05T18:43:26 GST" duration-ms="11840" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyWhetherUserIsAbleToAddANewUser -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscripts.AdminusersTest@128d2484]" started-at="2025-12-05T18:43:26 GST" name="driverQuit" finished-at="2025-12-05T18:43:26 GST" duration-ms="317" status="PASS">
+    <test started-at="2025-12-12T14:59:05 GST" name="ChromeTest" finished-at="2025-12-12T14:59:24 GST" duration-ms="18574">
+      <class name="testscripts.HomeTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscripts.HomeTest@4c583ecf]" started-at="2025-12-12T14:59:05 GST" name="initializeBrowser" finished-at="2025-12-12T14:59:12 GST" duration-ms="6413" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyWhetherUserIsAbleToAddANewUser status=SUCCESS method=AdminusersTest.verifyWhetherUserIsAbleToAddANewUser()[pri:0, instance:testscripts.AdminusersTest@128d2484] output={null}]]]>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeBrowser -->
+        <test-method signature="verifyWhetherUserIsAbleToSuccessfullyLogout()[pri:5, instance:testscripts.HomeTest@4c583ecf]" started-at="2025-12-12T14:59:12 GST" name="verifyWhetherUserIsAbleToSuccessfullyLogout" description="verifySuccessfullyogout" finished-at="2025-12-12T14:59:23 GST" duration-ms="11685" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyWhetherUserIsAbleToSuccessfullyLogout -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscripts.HomeTest@4c583ecf]" started-at="2025-12-12T14:59:23 GST" name="driverQuit" finished-at="2025-12-12T14:59:24 GST" duration-ms="375" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyWhetherUserIsAbleToSuccessfullyLogout status=SUCCESS method=HomeTest.verifyWhetherUserIsAbleToSuccessfullyLogout()[pri:5, instance:testscripts.HomeTest@4c583ecf] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testscripts.AdminusersTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- testscripts.HomeTest -->
+    </test> <!-- ChromeTest -->
+    <test started-at="2025-12-12T14:59:24 GST" name="FirefoxTest" finished-at="2025-12-12T14:59:43 GST" duration-ms="19402">
+      <class name="testscripts.HomeTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscripts.HomeTest@40005471]" started-at="2025-12-12T14:59:24 GST" name="initializeBrowser" finished-at="2025-12-12T14:59:32 GST" duration-ms="8623" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeBrowser -->
+        <test-method signature="verifyWhetherUserIsAbleToSuccessfullyLogout()[pri:5, instance:testscripts.HomeTest@40005471]" started-at="2025-12-12T14:59:32 GST" name="verifyWhetherUserIsAbleToSuccessfullyLogout" description="verifySuccessfullyogout" finished-at="2025-12-12T14:59:39 GST" duration-ms="6590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyWhetherUserIsAbleToSuccessfullyLogout -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscripts.HomeTest@40005471]" started-at="2025-12-12T14:59:39 GST" name="driverQuit" finished-at="2025-12-12T14:59:43 GST" duration-ms="4184" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyWhetherUserIsAbleToSuccessfullyLogout status=SUCCESS method=HomeTest.verifyWhetherUserIsAbleToSuccessfullyLogout()[pri:5, instance:testscripts.HomeTest@40005471] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverQuit -->
+      </class> <!-- testscripts.HomeTest -->
+    </test> <!-- FirefoxTest -->
+  </suite> <!-- CrossBrowserTesting -->
 </testng-results>

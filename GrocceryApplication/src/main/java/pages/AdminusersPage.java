@@ -23,8 +23,8 @@ public WebDriver driver;
 	@FindBy(name="Search")WebElement searchButton2;
 	@FindBy(xpath="//a[text()=' Reset']") WebElement resetButton;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible' or @class='alert-danger alert-dismissible']")WebElement userAddAlert;
-	@FindBy(xpath="//h3[text()='Admin Users']") WebElement searchAdminUserResultTab;
-	@FindBy(xpath="//h3[text()='Admin Users Informations']")WebElement adminUserInformationTab;
+	@FindBy(xpath="//th[text()='Username']") WebElement userNameTitile;
+	@FindBy(xpath="//h4[text()='Admin Users']")WebElement adminUserList;
 	
 	public void clickOnNewButton() {
 		newButton.click();
@@ -63,11 +63,26 @@ public WebDriver driver;
 	public boolean userAddedAlertMessage() {
 		return userAddAlert.isDisplayed();
 		}
-	public boolean isSearchAdminUserResultTabDisplayed() {
-		return searchAdminUserResultTab.isDisplayed();
+	public boolean isuserNameTitileDisplayed() {
+		return userNameTitile.isDisplayed();
 	}
-	public boolean isAdminUsersIformationTabDisplayed() {
-		return adminUserInformationTab.isDisplayed();
+	public boolean isAdminUserListDisplayed() {
+		return adminUserList.isDisplayed();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

@@ -11,7 +11,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class HomeTest extends Base {
-	@Test
+	@Test(priority=5,description="verifySuccessfullyogout",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserIsAbleToSuccessfullyLogout() throws IOException, InterruptedException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
