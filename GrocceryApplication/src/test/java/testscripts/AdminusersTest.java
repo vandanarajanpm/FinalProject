@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constant.Constants;
 import pages.AdminusersPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -40,7 +41,7 @@ public class AdminusersTest extends Base{
 		adminuserpage.selectUserType(usertype);
 		adminuserpage.clickOnSaveButton();
 		boolean userAddedAlertDisplayed=adminuserpage.userAddedAlertMessage();
-	    Assert.assertTrue(userAddedAlertDisplayed,"user not able to add new user");
+	    Assert.assertTrue(userAddedAlertDisplayed,Constants.ADDNEWUSERFAILED);
 		
 	}
 	@Test(priority=7,description="verify Search For NewlyAddedUser")
@@ -62,7 +63,7 @@ public class AdminusersTest extends Base{
 		adminuserpage.enterTheUserNameToSearch(usernamevalue);
 		adminuserpage.clickOnSearchButton2();
 		boolean userNameDisplayed=adminuserpage.isuserNameTitileDisplayed();
-		Assert.assertTrue(userNameDisplayed," user is able to see username titile");
+		Assert.assertTrue(userNameDisplayed,Constants.USERNAMETITLENOTDISPLAYED);
 		
 	}
 	@Test(priority=8,description="verify Reset UserList")
@@ -81,7 +82,7 @@ public class AdminusersTest extends Base{
 		adminuserpage.clickOnResetButton();
 		
 		boolean adminUserListDisplayed=adminuserpage.isAdminUserListDisplayed();
-		Assert.assertTrue(adminUserListDisplayed,"user list not reset");
+		Assert.assertTrue(adminUserListDisplayed,Constants.ADMINUSERLISTNOTRESET);
 		
 	}
 	

@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constant.Constants;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -26,7 +27,7 @@ public class HomeTest extends Base {
 		Thread.sleep(2000);
 		String expected="7rmart supermarket";
 		String actual = loginpage.getTheTitle();
-		Assert.assertEquals(actual,expected,"user was unable to logout from the home page");
+		Assert.assertEquals(actual,expected,Constants.LOGOUTFAILEDFROMHOMEPAGE);
 				
 }
 	

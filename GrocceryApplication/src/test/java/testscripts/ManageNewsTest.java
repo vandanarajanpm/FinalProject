@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constant.Constants;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
@@ -34,7 +35,7 @@ public class ManageNewsTest extends Base{
 		
 		
 		boolean alertMessage=news.alertMessage();
-	    Assert.assertTrue(alertMessage,"News was not added successfully");
+	    Assert.assertTrue(alertMessage,Constants.NEWSNOTADDED);
 
 	}
 	@Test(priority=10,description="verify Search Newly AddedUser")
@@ -56,7 +57,7 @@ public class ManageNewsTest extends Base{
 		news.clickOnsearchButton1();
 		
 		boolean manageNewsTitileDisplayed=news.ismanageNewsTitileDisplayed();
-		Assert.assertTrue(manageNewsTitileDisplayed,"user is able to see manamgenewsTitile");
+		Assert.assertTrue(manageNewsTitileDisplayed,Constants.MANAGENEWSTITLEVISIBLE);
 		
 	}
 	@Test(priority=11,description="verify Reset NewsList")
@@ -74,7 +75,7 @@ public class ManageNewsTest extends Base{
 		ManageNewsPage news = new ManageNewsPage(driver);
 		news.clickOnResetButton();
 		boolean newstableHeaderDisplayed=news.isnewstableHeaderDispalyed();
-		Assert.assertTrue(newstableHeaderDisplayed,"user is able to see newstableheader");
+		Assert.assertTrue(newstableHeaderDisplayed,Constants.NEWSTABLEHEADERVISIBLE);
 		
 	}	
 		
