@@ -10,18 +10,19 @@ import org.testng.annotations.Test;
 
 import automationcore.Base;
 import constant.Constants;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
+	HomePage home;
 	@Test(priority=1,description="verify user login with valid credentials.",groups = {"smoke"})
 	public void verifyWhetherUserIsAbleToLoginWithValidCredential() throws IOException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		home=loginpage.signinButtonClick();
 		boolean dashboardDisplayed=loginpage.isDashboardDisplayed();
 		Assert.assertTrue(dashboardDisplayed,Constants.VALIDCREDENTIALSERROR);
 	}
@@ -30,9 +31,7 @@ public class LoginTest extends Base {
 		String usernamevalue=ExcelUtility.getStringData(1, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue).signinButtonClick();
 		String expected="7rmart supermarket";
 		String actual=loginpage.getTheTitle();
 		Assert.assertEquals(actual,expected,Constants.INVALIDLOGINERROR);
@@ -43,9 +42,7 @@ public class LoginTest extends Base {
 		String usernamevalue=ExcelUtility.getStringData(2, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(2, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue).signinButtonClick();
 		boolean adminusersDisplayed=loginpage.isadminusersDisplayed();
 		Assert.assertTrue(adminusersDisplayed,Constants.VALIDLOGINFAILED);
 		}
@@ -54,9 +51,7 @@ public class LoginTest extends Base {
 		//String usernamevalue=ExcelUtility.getStringData(3, 0,"LoginPage");
 		//String passwordvalue=ExcelUtility.getStringData(3, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue).signinButtonClick();
 		boolean alertmessageDisplayed = loginpage.isalertmessageDisplayed();
 		Assert.assertTrue(alertmessageDisplayed, Constants.ERRORMESSAGENOTDISPLAYED);
 		}

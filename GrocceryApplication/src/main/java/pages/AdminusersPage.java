@@ -26,39 +26,50 @@ public WebDriver driver;
 	@FindBy(xpath="//th[text()='Username']") WebElement userNameTitile;
 	@FindBy(xpath="//h4[text()='Admin Users']")WebElement adminUserList;
 	
-	public void clickOnNewButton() {
+	public AdminusersPage clickOnAdminuserNewButton() {
 		newButton.click();
+		return this;
 	}
-	public void enterUserNameOnUserNameField( String usernamevalue) {
+	public AdminusersPage enterUsernameInAdminUserPage( String usernamevalue) {
 		username.sendKeys(usernamevalue);
+		return this;
 	}
-	public void enterPasswordOnPasswordField(String passwordvalue) {
+	public AdminusersPage enterPasswordInAdminUserPage(String passwordvalue) {
 		password.sendKeys(passwordvalue);
+		return this;
 	}
-	public void selectUserType(String usertype) {
+	public AdminusersPage selectUserType(String usertype) {
 		Select select = new Select(dropdown);
 		select.selectByVisibleText(usertype);
+		return this;
 	}
 	
-	public void clickOnDropdownIcon() {
+	public AdminusersPage clickOnDropdownIconInAdminUserPage() {
 		dropdown.click();
+		return this;
 		
 	}
-	public void clickOnSaveButton() {
+	public AdminusersPage clickOnSaveButtonInAdminUserPage() {
 		saveButton.click();
+		return this;
+		
 	}
-	public void clickOnSearchButton() {
+	public AdminusersPage clickOnSearchButtonInAdminUserPage() {
 		searchButton.click();
+		return this;
 	}
-	public void enterTheUserNameToSearch(String userNameValue) {
+	public AdminusersPage enterUsernameInSearchAdminUserPage(String userNameValue) {
 		searchUserName.sendKeys(userNameValue);
+		return this;
 	}
-	public void clickOnSearchButton2() {
+	public AdminusersPage clickSearchButton2InAdminUserPage() {
 		searchButton2.click();
+		return this;
 	}
 	
-	public void clickOnResetButton() {
+	public AdminusersPage clickOnResetButtonInAdminUserPage() {
 		resetButton.click();
+		return this;
 	}
 	public boolean userAddedAlertMessage() {
 		return userAddAlert.isDisplayed();

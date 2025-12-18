@@ -21,18 +21,22 @@ public WebDriver driver;
 	@FindBy(xpath="//a[normalize-space()='More info']") WebElement moreinfoButton;
 	@FindBy(xpath="//p[text()='Manage News']/ancestor::div[@class='small-box bg-info']//a")WebElement managenews;
 	
-	public void clickOnAdminIcon() {
+	public HomePage clickOnAdminIcon() {
 		adminIcon.click();
+		return this;
 		
 	}
-	public void clickOnLogoutButton() {
+	public LoginPage clickOnLogoutButton() {
 		logoutButton.click();
+		return new LoginPage(driver);
 	}
-	public void clickOnMoreinfoButton() {
+	public AdminusersPage clickOnAdminUserMoreinfoButton() {
 		moreinfoButton.click();
+		return new AdminusersPage(driver);
 	}
-	public void clickOnManageNewsButton() {
+	public ManageNewsPage clickOnManageNewsButton() {
 		managenews.click();
+		return new ManageNewsPage(driver);
 	}
 	
     

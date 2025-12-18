@@ -24,14 +24,17 @@ public class LoginPage {
 	
 	
 	
-	public void enterUserNameOnUserNameField(String usernamevalue) {
+	public LoginPage enterUserNameOnUserNameField(String usernamevalue) {
 		username.sendKeys(usernamevalue);
+		return this;
 	}
-	public void enterPasswordOnPasswordField(String passwordvalue) {
+	public LoginPage enterPasswordOnPasswordField(String passwordvalue) {
 		password.sendKeys(passwordvalue);
+		return this;
 	}
-	public void signinButtonClick() {
+	public HomePage signinButtonClick() {
 		signinButton.click();
+		return new HomePage(driver);
 	}
 	public boolean isDashboardDisplayed() {
 		return dashboard.isDisplayed();

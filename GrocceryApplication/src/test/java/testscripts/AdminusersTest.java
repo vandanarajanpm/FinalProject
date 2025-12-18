@@ -15,32 +15,25 @@ import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminusersTest extends Base{
+	HomePage home;
+	AdminusersPage adminuser;
 	@Test(priority=6,description="verify Add NewUser")
 	
 	public void verifyWhetherUserIsAbleToAddANewUser() throws IOException {
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
-		
-		HomePage homepage=new HomePage(driver);
-		homepage.clickOnMoreinfoButton();
-		
-		AdminusersPage adminuserpage = new AdminusersPage(driver);
-		adminuserpage.clickOnNewButton();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		home=loginpage.signinButtonClick();
+		adminuser=home.clickOnAdminUserMoreinfoButton();
+		adminuser.clickOnAdminuserNewButton();
 		FakerUtility fakerutility =new FakerUtility();
-		
-		
 		String username=fakerutility.createRandomUsername();
 		String password=fakerutility.createFakePassword();
 		String usertype=ExcelUtility.getStringData(0, 2, "AdminuserPage");
-		adminuserpage.enterUserNameOnUserNameField(username);
-		adminuserpage.enterPasswordOnPasswordField(password);
-		adminuserpage.selectUserType(usertype);
-		adminuserpage.clickOnSaveButton();
-		boolean userAddedAlertDisplayed=adminuserpage.userAddedAlertMessage();
+		adminuser.enterUsernameInAdminUserPage(username).enterPasswordInAdminUserPage(password).selectUserType(usertype).clickOnSaveButtonInAdminUserPage();
+		
+		boolean userAddedAlertDisplayed=adminuser.userAddedAlertMessage();
 	    Assert.assertTrue(userAddedAlertDisplayed,Constants.ADDNEWUSERFAILED);
 		
 	}
@@ -49,20 +42,14 @@ public class AdminusersTest extends Base{
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
-		
-		HomePage homepage=new HomePage(driver);
-		homepage.clickOnMoreinfoButton();
-		
-		AdminusersPage adminuserpage = new AdminusersPage(driver);
-		adminuserpage.clickOnSearchButton();
-		
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		home=loginpage.signinButtonClick();
+		adminuser=home.clickOnAdminUserMoreinfoButton();
+		adminuser.clickOnSearchButtonInAdminUserPage();
 		String usernames=ExcelUtility.getStringData(0, 0,"AdminuserPage");
-		adminuserpage.enterTheUserNameToSearch(usernamevalue);
-		adminuserpage.clickOnSearchButton2();
-		boolean userNameDisplayed=adminuserpage.isuserNameTitileDisplayed();
+		adminuser. enterUsernameInSearchAdminUserPage(usernamevalue).clickSearchButton2InAdminUserPage();
+		
+		boolean userNameDisplayed=adminuser.isuserNameTitileDisplayed();
 		Assert.assertTrue(userNameDisplayed,Constants.USERNAMETITLENOTDISPLAYED);
 		
 	}
@@ -71,17 +58,12 @@ public class AdminusersTest extends Base{
 		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue);
-		loginpage.enterPasswordOnPasswordField(passwordvalue);
-		loginpage.signinButtonClick();
+		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		home=loginpage.signinButtonClick();
+		adminuser=home.clickOnAdminUserMoreinfoButton();
+		adminuser.clickOnResetButtonInAdminUserPage();
 		
-		HomePage homepage=new HomePage(driver);
-		homepage.clickOnMoreinfoButton();
-		
-		AdminusersPage adminuserpage = new AdminusersPage(driver);
-		adminuserpage.clickOnResetButton();
-		
-		boolean adminUserListDisplayed=adminuserpage.isAdminUserListDisplayed();
+		boolean adminUserListDisplayed=adminuser.isAdminUserListDisplayed();
 		Assert.assertTrue(adminUserListDisplayed,Constants.ADMINUSERLISTNOTRESET);
 		
 	}

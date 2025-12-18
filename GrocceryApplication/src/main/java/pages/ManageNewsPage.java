@@ -27,29 +27,36 @@ public WebDriver driver;
 	
 	
 	
-	public void clickNewButton() {
+	public  ManageNewsPage clickNewButtonInManageNewsPage() {
 		newbutton.click();
+		return this;
 	}
-	public void enterNews(String text) {
+	public ManageNewsPage enterNewsInManageNewsPage(String text) {
 		newsTextArea.sendKeys(text);
+		return this;
 	}
-	public void clickSave() {
+	public ManageNewsPage clickSaveInManageNewsPage() {
 		saveButton.click();
+		return this;
 	}
 	public boolean alertMessage() {
 		return alertmessage.isDisplayed();
 	}
-	public void clickOnsearchButton() {
+	public ManageNewsPage clickSearchButtonInManageNewsPage() {
 		searchButton.click();
+		return this;
 		}
-	public void enterTheTitle(String text) {
+	public ManageNewsPage enterTheTitleToSearch(String text) {
 		searchTitile.sendKeys("Automation course");
+		return this;
 		}
-	public void clickOnsearchButton1() {
+	public ManageNewsPage clickOnsearchButton1InManageNewsPage() {
 		searchButton1.click();
+		return this;
 	}
-	public void clickOnResetButton() {
+	public ManageNewsPage clickOnResetButtonInManageNewsPage() {
 		resetButton.click();
+		return this;
 	}
 	public boolean ismanageNewsTitileDisplayed() {
 		return manageNewsTitile.isDisplayed();
