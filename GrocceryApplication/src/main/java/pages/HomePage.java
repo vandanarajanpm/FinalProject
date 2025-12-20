@@ -7,9 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 
 public class HomePage {
 public WebDriver driver;
+WaitUtility waitUtility = new WaitUtility();
 	
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
@@ -24,9 +27,9 @@ public WebDriver driver;
 	public HomePage clickOnAdminIcon() {
 		adminIcon.click();
 		return this;
-		
-	}
+		}
 	public LoginPage clickOnLogoutButton() {
+		waitUtility.waitUntilElementToBeClickable(driver, logoutButton);
 		logoutButton.click();
 		return new LoginPage(driver);
 	}
@@ -39,6 +42,4 @@ public WebDriver driver;
 		return new ManageNewsPage(driver);
 	}
 	
-    
-
-}
+  }

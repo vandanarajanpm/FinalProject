@@ -17,7 +17,7 @@ import org.testng.annotations.Parameters;
 import constant.Constants;
 import utilities.ScreenshotUtility;
 
-public class Base {
+public class Base { 
 	Properties prop;
 	FileInputStream f;
 	public WebDriver driver;
@@ -27,7 +27,7 @@ public class Base {
 		prop=new Properties();
 		f=new FileInputStream(Constants.CONFIGFILE);
 		prop.load(f);
-		if(browsers.equalsIgnoreCase("Chrome")) {
+		if(browsers.equalsIgnoreCase("Chrome")) {   //browser initialization
 			driver=new ChromeDriver();	
 		}
 		else if(browsers.equalsIgnoreCase("Firefox")) {
@@ -39,7 +39,7 @@ public class Base {
 		else {
 			throw new Exception("Invalid browser");
 		}
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("url"));   //browser setup
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}

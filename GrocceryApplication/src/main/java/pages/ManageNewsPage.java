@@ -29,34 +29,34 @@ public WebDriver driver;
 	
 	public  ManageNewsPage clickNewButtonInManageNewsPage() {
 		newbutton.click();
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public ManageNewsPage enterNewsInManageNewsPage(String text) {
 		newsTextArea.sendKeys(text);
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public ManageNewsPage clickSaveInManageNewsPage() {
 		saveButton.click();
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public boolean alertMessage() {
 		return alertmessage.isDisplayed();
 	}
 	public ManageNewsPage clickSearchButtonInManageNewsPage() {
 		searchButton.click();
-		return this;
+		return new ManageNewsPage(driver);
 		}
 	public ManageNewsPage enterTheTitleToSearch(String text) {
 		searchTitile.sendKeys("Automation course");
-		return this;
+		return new ManageNewsPage(driver);
 		}
 	public ManageNewsPage clickOnsearchButton1InManageNewsPage() {
 		searchButton1.click();
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public ManageNewsPage clickOnResetButtonInManageNewsPage() {
 		resetButton.click();
-		return this;
+		return new ManageNewsPage(driver);
 	}
 	public boolean ismanageNewsTitileDisplayed() {
 		return manageNewsTitile.isDisplayed();

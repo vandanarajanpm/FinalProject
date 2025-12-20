@@ -48,8 +48,7 @@ public class LoginTest extends Base {
 		}
 	@Test(priority=4,description="verify Login With InvalidUsername And InvalidPassword",groups = {"smoke"},dataProvider = "loginProvider")
 	public void verifyWhetherUserIsAbleToLoginWithInValidUsernameAndInValidPassword(String usernamevalue,String passwordvalue) throws IOException {
-		//String usernamevalue=ExcelUtility.getStringData(3, 0,"LoginPage");
-		//String passwordvalue=ExcelUtility.getStringData(3, 1, "LoginPage");
+		
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue).signinButtonClick();
 		boolean alertmessageDisplayed = loginpage.isalertmessageDisplayed();

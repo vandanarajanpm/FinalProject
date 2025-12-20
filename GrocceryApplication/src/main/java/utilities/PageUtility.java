@@ -6,13 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
-	  WebDriver driver;
-      public PageUtility(WebDriver driver) {
-	   this.driver = driver;
-	    }
+	 
 	public void selectDropdownWithValue(WebElement element, String value) {
-
-		Select object = new Select(element);
+        Select object = new Select(element);
 		object.selectByValue(value);
 		}
 	public void selectDropdownByVisibleText(WebElement element,String text) {
@@ -23,26 +19,18 @@ public class PageUtility {
 		Select object = new Select(element);
 		object.selectByIndex(index);
 	}
-	public void selectRadioButton(WebElement radioButton) {
-		if(!radioButton.isSelected()) {
-			radioButton.click();
-		}
-	}
-	public void selectCheckbox(WebElement checkbox) {
-		if(checkbox.isSelected()) {
-			checkbox.click();
-		}
-	}
-	public void mouseOver(WebElement element) {
+	
+	public void mouseOver(WebElement element,WebDriver driver) {
 		Actions actions=new Actions(driver);
 		actions.moveToElement(element).build().perform();
 	}
-	public void rightClick(WebElement element) {
+	public void rightClick(WebElement element, WebDriver driver) {
 		Actions actions=new Actions(driver);
 		actions.contextClick(element).build().perform();
 	}
+	public void dragAndDrop(WebElement dragMe, WebElement dropHere, WebDriver driver) {
+		Actions action = new Actions(driver);
+		action.dragAndDrop(dragMe, dropHere).build().perform();
+	}
 	
-	
-
-
 }

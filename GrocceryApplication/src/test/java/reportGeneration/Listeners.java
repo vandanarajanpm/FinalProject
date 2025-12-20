@@ -17,7 +17,7 @@ public class Listeners extends Base implements ITestListener{
 	ExtentReports extent = ExtentReportUtility.createExtentReports();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
-	public void onTestStart(ITestResult result) {
+	public void onTestStart(ITestResult result) {   //executes before each test excecution.
 
 	ITestListener.super.onTestStart(result);
 	test = extent.createTest(result.getMethod().getMethodName());
@@ -94,7 +94,7 @@ public class Listeners extends Base implements ITestListener{
 	public void onFinish(ITestContext context) {
 
 	ITestListener.super.onFinish(context);
-	extent.flush();
+	extent.flush();  //for all above methods to work flush method is required
 	}
 
 

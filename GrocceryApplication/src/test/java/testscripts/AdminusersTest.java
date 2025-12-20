@@ -20,19 +20,19 @@ public class AdminusersTest extends Base{
 	@Test(priority=6,description="verify Add NewUser")
 	
 	public void verifyWhetherUserIsAbleToAddANewUser() throws IOException {
-		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");
+		String usernamevalue=ExcelUtility.getStringData(0, 0,"LoginPage");  //Read login credentials from Excel
 		String passwordvalue=ExcelUtility.getStringData(0, 1, "LoginPage");
-		LoginPage loginpage=new LoginPage(driver);
+		LoginPage loginpage=new LoginPage(driver);   //Create LoginPage object and perform login
 		loginpage.enterUserNameOnUserNameField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
 		home=loginpage.signinButtonClick();
-		adminuser=home.clickOnAdminUserMoreinfoButton();
-		adminuser.clickOnAdminuserNewButton();
-		FakerUtility fakerutility =new FakerUtility();
+		adminuser=home.clickOnAdminUserMoreinfoButton();  //Navigate to Admin Users page
+		adminuser.clickOnAdminuserNewButton();            //Open New User form
+		FakerUtility fakerutility =new FakerUtility();    //Generate random user details
 		String username=fakerutility.createRandomUsername();
 		String password=fakerutility.createFakePassword();
 		String usertype=ExcelUtility.getStringData(0, 2, "AdminuserPage");
 		adminuser.enterUsernameInAdminUserPage(username).enterPasswordInAdminUserPage(password).selectUserType(usertype).clickOnSaveButtonInAdminUserPage();
-		
+		//Enter user details and save
 		boolean userAddedAlertDisplayed=adminuser.userAddedAlertMessage();
 	    Assert.assertTrue(userAddedAlertDisplayed,Constants.ADDNEWUSERFAILED);
 		

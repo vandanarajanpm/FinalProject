@@ -22,9 +22,9 @@ public class HomeTest extends Base {
 		home=loginpage.signinButtonClick();
 		
 		home.clickOnAdminIcon();
-		//Thread.sleep(2000);
+		
 		loginpage=home.clickOnLogoutButton();
-		//Thread.sleep(2000);
+		
 		String expected="7rmart supermarket";
 		String actual = loginpage.getTheTitle();
 		Assert.assertEquals(actual,expected,Constants.LOGOUTFAILEDFROMHOMEPAGE);

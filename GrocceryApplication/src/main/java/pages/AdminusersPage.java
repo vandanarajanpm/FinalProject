@@ -6,8 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+import utilities.WaitUtility;
+
 public class AdminusersPage {
 public WebDriver driver;
+PageUtility pageUtility = new PageUtility();
 	
 	public  AdminusersPage (WebDriver driver) {
 		this.driver=driver;
@@ -28,48 +32,45 @@ public WebDriver driver;
 	
 	public AdminusersPage clickOnAdminuserNewButton() {
 		newButton.click();
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public AdminusersPage enterUsernameInAdminUserPage( String usernamevalue) {
 		username.sendKeys(usernamevalue);
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public AdminusersPage enterPasswordInAdminUserPage(String passwordvalue) {
 		password.sendKeys(passwordvalue);
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public AdminusersPage selectUserType(String usertype) {
-		Select select = new Select(dropdown);
-		select.selectByVisibleText(usertype);
-		return this;
-	}
+		PageUtility page= new PageUtility() ;
+		page.selectDropdownWithValue(dropdown, usertype);
+		return new AdminusersPage(driver);
+		}
 	
-	public AdminusersPage clickOnDropdownIconInAdminUserPage() {
-		dropdown.click();
-		return this;
-		
-	}
-	public AdminusersPage clickOnSaveButtonInAdminUserPage() {
+   public AdminusersPage clickOnSaveButtonInAdminUserPage() {
+		WaitUtility wait = new WaitUtility();
+		wait.waitUntilElementToBeClickable(driver, saveButton);
 		saveButton.click();
-		return this;
+		return new AdminusersPage(driver);
 		
 	}
 	public AdminusersPage clickOnSearchButtonInAdminUserPage() {
 		searchButton.click();
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public AdminusersPage enterUsernameInSearchAdminUserPage(String userNameValue) {
 		searchUserName.sendKeys(userNameValue);
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public AdminusersPage clickSearchButton2InAdminUserPage() {
 		searchButton2.click();
-		return this;
+		return new AdminusersPage(driver);
 	}
 	
 	public AdminusersPage clickOnResetButtonInAdminUserPage() {
 		resetButton.click();
-		return this;
+		return new AdminusersPage(driver);
 	}
 	public boolean userAddedAlertMessage() {
 		return userAddAlert.isDisplayed();
@@ -79,21 +80,6 @@ public WebDriver driver;
 	}
 	public boolean isAdminUserListDisplayed() {
 		return adminUserList.isDisplayed();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }
